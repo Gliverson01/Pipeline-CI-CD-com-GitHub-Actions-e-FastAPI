@@ -37,9 +37,25 @@ jobs:
       - name: Run tests
         run: pytest
 
+
+      - name: Determine Docker tag and push setting
+        id: meta
+        run: |
+          if [ -n "${{ secrets.DOCKER_USERNAME }}" ]; then
+            echo "tag=${{ secrets.DOCKER_USERNAME }}/fastapi-ci-cd-demo:latest" >>"$GITHUB_OUTPUT"
+            echo "push=true" >>"$GITHUB_OUTPUT"
+          else
+            echo "tag=fastapi-ci-cd-demo:latest" >>"$GITHUB_OUTPUT"
+            echo "push=false" >>"$GITHUB_OUTPUT"
+          fi
+
       - name: Build Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
+
+          push: ${{ steps.meta.outputs.push }}
+          tags: ${{ steps.meta.outputs.tag }}
+
           push: false # change to true to push image to registry
           tags: ${{ secrets.DOCKER_USERNAME }}/fastapi-ci-cd-demo:latest

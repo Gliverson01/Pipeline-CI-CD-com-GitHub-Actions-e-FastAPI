@@ -30,7 +30,7 @@ Siga os passos abaixo para configurar e executar o projeto em sua máquina local
 
     ```bash
     git clone <URL_DO_SEU_REPOSITORIO>
-    cd ci-cd-fastapi-project
+    cd Pipeline-CI-CD-com-GitHub-Actions-e-FastAPI
     ```
 
 2.  **Crie e ative o ambiente virtual:**
@@ -83,7 +83,11 @@ O arquivo `.github/workflows/main.yml` define o pipeline CI/CD que será executa
 -   **Configuração do Python**: Configura o ambiente Python.
 -   **Instalação de Dependências**: Instala as dependências do projeto.
 -   **Execução de Testes**: Executa os testes unitários com `pytest`.
--   **Build e Push da Imagem Docker**: Constrói a imagem Docker da aplicação. (Atualmente configurado para não fazer push, mas pode ser habilitado para um registro de contêiner como Docker Hub ou GitHub Container Registry).
+-   **Build e Push da Imagem Docker**: Constrói a imagem Docker da aplicação. O workflow define o nome e decide automaticamente se fará o push da imagem, dependendo da presença dos secrets `DOCKER_USERNAME` e `DOCKER_PASSWORD`.
+
+### Configurando Secrets do GitHub
+
+Para permitir o envio da imagem para um registro de contêiner, crie os secrets `DOCKER_USERNAME` e `DOCKER_PASSWORD` no repositório com suas credenciais do Docker Hub (ou de outro registro). Se esses secrets não estiverem configurados, o workflow apenas construirá a imagem localmente, sem publicá-la.
 
 ### Configurando Secrets do GitHub
 
