@@ -23,7 +23,7 @@
 ### Fase 5: Implementação do GitHub Actions
 - [x] Criar o diretório .github/workflows
 - [x] Criar o arquivo de workflow CI/CD (main.yml)
-- [ ] Configurar o workflow para build, teste e push da imagem Docker
+- [x] Configurar o workflow para build, teste e push da imagem Docker
 
 ### Fase 6: Configuração de segurança e qualidade
 - [x] Integrar ferramentas de linting (flake8, black)
@@ -33,7 +33,7 @@
 ### Fase 7: Documentação e guias
 - [x] Criar README.md detalhado
 - [ ] Escrever guia de uso e implantação
-- [ ] Documentar o pipeline CI/CD
+- [x] Documentar o pipeline CI/CD
 
 ### Fase 8: Testes e validação final
 - [x] Executar o pipeline CI/CD completo
