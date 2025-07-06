@@ -89,6 +89,10 @@ O arquivo `.github/workflows/main.yml` define o pipeline CI/CD que será executa
 
 Para permitir o envio da imagem para um registro de contêiner, crie os secrets `DOCKER_USERNAME` e `DOCKER_PASSWORD` no repositório com suas credenciais do Docker Hub (ou de outro registro). Se esses secrets não estiverem configurados, o workflow apenas construirá a imagem localmente, sem publicá-la.
 
+### Configurando Secrets do GitHub
+
+Para permitir o envio da imagem para um registro de contêiner, crie um secret `DOCKER_USERNAME` no repositório com o seu usuário do Docker Hub (ou outro registro). Em seguida, altere `push: false` para `push: true` no arquivo `.github/workflows/main.yml` e adicione o secret `DOCKER_PASSWORD` contendo a senha ou token do registro escolhido.
+
 ## Próximos Passos
 
 -   Configurar o push da imagem Docker para um registro de contêiner.

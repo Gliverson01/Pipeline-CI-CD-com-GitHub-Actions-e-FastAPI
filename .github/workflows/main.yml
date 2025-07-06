@@ -37,6 +37,7 @@ jobs:
       - name: Run tests
         run: pytest
 
+
       - name: Determine Docker tag and push setting
         id: meta
         run: |
@@ -52,5 +53,9 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
+
           push: ${{ steps.meta.outputs.push }}
           tags: ${{ steps.meta.outputs.tag }}
+
+          push: false # change to true to push image to registry
+          tags: ${{ secrets.DOCKER_USERNAME }}/fastapi-ci-cd-demo:latest
