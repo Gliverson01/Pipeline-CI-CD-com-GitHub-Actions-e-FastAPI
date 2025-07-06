@@ -30,7 +30,7 @@ Siga os passos abaixo para configurar e executar o projeto em sua máquina local
 
     ```bash
     git clone <URL_DO_SEU_REPOSITORIO>
-    cd ci-cd-fastapi-project
+    cd Pipeline-CI-CD-com-GitHub-Actions-e-FastAPI
     ```
 
 2.  **Crie e ative o ambiente virtual:**
@@ -85,12 +85,17 @@ O arquivo `.github/workflows/main.yml` define o pipeline CI/CD que será executa
 -   **Execução de Testes**: Executa os testes unitários com `pytest`.
 -   **Build e Push da Imagem Docker**: Constrói a imagem Docker da aplicação. (Atualmente configurado para não fazer push, mas pode ser habilitado para um registro de contêiner como Docker Hub ou GitHub Container Registry).
 
+### Configurando Secrets do GitHub
+
+Para permitir o envio da imagem para um registro de contêiner, crie um secret `DOCKER_USERNAME` no repositório com o seu usuário do Docker Hub (ou outro registro). Em seguida, altere `push: false` para `push: true` no arquivo `.github/workflows/main.yml` e adicione o secret `DOCKER_PASSWORD` contendo a senha ou token do registro escolhido.
+
 ## Próximos Passos
 
 -   Configurar o push da imagem Docker para um registro de contêiner.
 -   Implementar a implantação contínua (CD) para um ambiente de nuvem (ex: AWS, Azure, GCP) usando Terraform.
 -   Adicionar mais testes (integração, ponta a ponta).
 -   Monitoramento e logging.
+-   Aprimorar a análise de código estática com ferramentas mais robustas ou serviços integrados.
 
 
 
