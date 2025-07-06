@@ -30,7 +30,7 @@ Siga os passos abaixo para configurar e executar o projeto em sua máquina local
 
     ```bash
     git clone <URL_DO_SEU_REPOSITORIO>
-    cd ci-cd-fastapi-project
+    cd Pipeline-CI-CD-com-GitHub-Actions-e-FastAPI
     ```
 
 2.  **Crie e ative o ambiente virtual:**
